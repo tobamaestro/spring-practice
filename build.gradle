@@ -13,5 +13,5 @@ dependencies {
     compile 'org.aspectj:aspectjweaver:1.8.10'
 
     testCompile 'org.springframework:spring-test:4.3.4.RELEASE'
-    testCompile 'junit:junit:4.1.1'
+    testCompile 'junit:junit:4.12'
 }

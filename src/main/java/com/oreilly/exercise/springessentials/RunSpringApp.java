@@ -1,17 +1,11 @@
 package com.oreilly.exercise.springessentials;
 
+import com.oreilly.exercise.springessentials.config.AppConfig;
 import com.oreilly.exercise.springessentials.entities.BasketballGame;
 import com.oreilly.exercise.springessentials.entities.Bulls;
 import com.oreilly.exercise.springessentials.entities.Game;
-import org.springframework.context.ApplicationContext;
+import com.oreilly.exercise.springessentials.entities.Pistons;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.text.NumberFormat;
-import java.util.Currency;
-import java.util.Iterator;
 
 /**
  * Created by toba on 22-Jan-17.
@@ -25,12 +19,16 @@ public class RunSpringApp {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
         Bulls bulls = context.getBean("bulls", Bulls.class);
+        Pistons pistons = context.getBean("pistons", Pistons.class);
 
         Game game1 = context.getBean("game", Game.class);
-        System.out.println(game1);
+        game1.setHome(bulls);
+        game1.setAway(pistons);
+
+        game1.playGame();
+        game1.playGame();
 
         context.close();
-
 
 //        Game game2 = context.getBean("game", Game.class);
 //        ((BasketballGame)game2).setAway(bulls);

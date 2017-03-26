@@ -39,6 +39,16 @@ public class BasketballGame implements Game {
         this.dataSource = dataSource;
     }
 
+    @Override
+    public String playGame() {
+        return Math.random() < 0.5 ? getAway().getName() : getHome().getName();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Playing game between %s at %s.", getAway().getName(), getHome().getName());
+    }
+
     public Team getHome() {
         return home;
     }
@@ -53,15 +63,5 @@ public class BasketballGame implements Game {
 
     public void setAway(Team away) {
         this.away = away;
-    }
-
-    @Override
-    public String playGame() {
-        return Math.random() < 0.5 ? getAway().getName() : getHome().getName();
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Playing game between %s at %s.", getAway().getName(), getHome().getName());
     }
 }

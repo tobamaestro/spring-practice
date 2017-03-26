@@ -1,8 +1,7 @@
-package com.oreilly.exercise.springessentials;
+package com.oreilly.exercise.springessentials.config;
 
 import com.oreilly.exercise.springessentials.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 
 import javax.annotation.Resource;
@@ -16,6 +15,7 @@ import java.util.List;
 @Configuration
 @Import(InfrastructureConfig.class)
 @ComponentScan(basePackages = "com.oreilly.exercise.springessentials")
+@EnableAspectJAutoProxy
 public class AppConfig {
 
     @Autowired
@@ -37,8 +37,8 @@ public class AppConfig {
     private List<Team> teams;
 
 //    @Bean(initMethod = "startGame", destroyMethod = "endGame")
-    @Bean
 //    @Scope("prototype")
+    @Bean
     public Game game() {
         BasketballGame basketballGame = new BasketballGame(teams.get(0), teams.get(1));
         basketballGame.setDataSource(dataSource);
