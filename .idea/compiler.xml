@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="SpringEssentials_main" target="1.8" />
-      <module name="SpringEssentials_test" target="1.8" />
+      <module name="spring-practice_main" target="1.8" />
+      <module name="spring-practice_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
